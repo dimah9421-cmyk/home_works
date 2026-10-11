@@ -17,15 +17,19 @@ public class Main {
         int var = -1;   // Переменная для выбора пользователя
         System.out.println("Выберите способ заполнения массива");
         System.out.println("0 - массив заполнится автоматически, 1 - массив заполняете вы");
-        while ((var != 0) && (var != 1)) {  // Бесконечный цикл пока не будет передано 0 or 1
-            System.out.println("Введите число 1 или 0");
-            var = sc.nextInt();
-
+        try {
+            while ((var != 0) && (var != 1)) {  // Бесконечный цикл пока не будет передано 0 or 1
+                System.out.println("Введите число 1 или 0");
+                var = sc.nextInt();
+            }
+        }catch (java.util.InputMismatchException e){
+            System.out.println("Ошибка: Должно быть число");
+            System.exit(1);
         }
         return var;
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
         array_functions.assert_tests();     // Функция для проверки математической функции
 
@@ -36,9 +40,14 @@ public class Main {
             System.out.println("Программа для нахождения суммы корней sqrt(10 + a[i]**2)");
         }
         else if (args.length == 0) {
+            int n = 0;
             System.out.print("Введите n = ");
-            int n = sc.nextInt();   // Присвоение данных из консоли в переменную n
-
+            try {                                           // Часть кода которая проверяется
+                n = sc.nextInt();   // Присвоение данных из консоли в переменную n
+            }catch (java.util.InputMismatchException e) {   // Часть кода которая выполняется при ошибке
+                System.out.println("Ошибка: n должно быть целым числом числом");
+                System.exit(1); // Полное завершение программы
+            }
             int var = input_selection();
             double[] array = array_functions.fill_array(n, var); // Создание переменной массива размером n с данными
 
@@ -49,11 +58,22 @@ public class Main {
 
             System.out.println();
 
-            System.out.printf("Сумма равна = %f", S); // Вывод суммы
+            System.out.printf("Сумма корней равна S = %.2f", S); // Вывод суммы
         }
-//        else {
-//            double[] array = array_functions.user_fill();
-//        }
+        else{
+            try {
+                double[] array = new double[args.length];   // Создание переменной массива размером переданной длинны
+
+                for (int i = 0; i < args.length; i++)       // Цикл для копирования данных из консоли в созданный массив
+                    array[i] = Double.parseDouble(args[i]); // Преобразование строки (args - строка) в вещественные числа
+
+                double S = Calc.Sum_sqrt(array);    // Вычисления по заданию
+                System.out.printf("сумма корней равна S = %.2f", S);   // Вывод суммы
+            } catch (NumberFormatException e){
+                // Если в переданных аргументах было не числа, а символы
+                System.out.println("Ошибка: Аргументы должны быть числами!!!");
+            }
+        }
     }
 }
 

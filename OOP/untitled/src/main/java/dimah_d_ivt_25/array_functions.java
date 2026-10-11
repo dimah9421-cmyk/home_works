@@ -29,9 +29,14 @@ public class array_functions {
 
         double[] array = new double[length];    // Переменная типа массива с double типом переменных
         for (int i = 0; i < length; i++) {      // Цикл для заполнения массива с клавиатуры (пользователем)
-            System.out.printf("x_%d = ", i + 1);
-            double el = sc.nextDouble();
-            array[i] = el;
+            try {
+                System.out.printf("x_%d = ", i + 1);
+                double el = sc.nextDouble();
+                array[i] = el;
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Ошибка: Должны быть число!!!");
+                break;
+            }
         }
         return array;
     }
