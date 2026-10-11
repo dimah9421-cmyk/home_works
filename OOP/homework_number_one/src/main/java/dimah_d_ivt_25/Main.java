@@ -24,7 +24,7 @@ public class  Main {     // Главный класс. Называние мож
             System.out.println("Программа вычесляет а и b по трем аргументам");     // То выводим сообщение в консоль
             System.out.println("Передайте пожалуйста 3 аргумента");
         }
-        // Если аргументы не переданны, то объесняем пользователю что от него требуется
+        // Если аргументы не переданы, то объясняем пользователю, что от него требуется
         else if (args.length == 0) {
             // Вывод строки в консоль с сообщением для пользователя
             System.out.println("Введите аргументы:");
@@ -36,9 +36,8 @@ public class  Main {     // Главный класс. Называние мож
                 System.out.print("z = ");
                 z = scan.nextDouble();    // Присвоение данных из консоли в переменную z
             } catch (java.util.InputMismatchException e) {
-                System.out.println("Ошибка в типе переданного аргумента");
-                System.out.println("Число должно double");
-                return;
+                System.out.println("Ошибка: Должно быть число");
+                System.exit(1); // Команда для полного завершения программы
             }
             // Вычисление a через написанную выше функцию + присвоение результата в переменную a
             a = calculations_functions.calculate_a(x, y);
@@ -58,9 +57,8 @@ public class  Main {     // Главный класс. Называние мож
                 y = Double.parseDouble(args[1]);    // Это подобно nextDouble
                 z = Double.parseDouble(args[2]);
             } catch (NumberFormatException e) {     // Если есть ошибка ( в данном случае типа переменой),то выводим сообщение
-                System.out.println("Ошибка в типе переданного аргумента");
-                System.out.println("Числа должно double");
-                return;
+                System.out.println("Ошибка: Аргументы должны быть числами");
+                System.exit(1);
             }
             // Вычисление a через написанную выше функцию + присвоение результата в переменную a
             a = calculations_functions.calculate_a(x, y);
@@ -73,7 +71,6 @@ public class  Main {     // Главный класс. Называние мож
             System.out.printf("a = %.5f; b = %.5f", a, b);
 
         }
-
         // Иначе если никакие условия выше не подошли выводим пользователю сообщение
         else {
             System.out.println("Неправильно, должно быть передано 3 аргумента");
