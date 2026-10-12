@@ -58,6 +58,27 @@ public class array_functions {
         return array;   // возврат массива
     }
 
+    /// Функция для выбора пользователя по заполнения массива
+    /// @return - значение int, а точнее либо 1, либо 0
+    static int input_selection(){
+        Scanner sc = new Scanner(System.in);    // Переменная для считывания данных
+
+        int var = -1;   // Переменная для выбора пользователя
+        System.out.println("Выберите способ заполнения массива");
+        System.out.println("0 - массив заполнится автоматически, 1 - массив заполняете вы");
+        try {
+            while ((var != 0) && (var != 1)) {  // Бесконечный цикл пока не будет передано 0 or 1
+                System.out.println("Введите число 1 или 0");
+                var = sc.nextInt();
+            }
+        }catch (java.util.InputMismatchException e){
+            System.out.println("Ошибка: Должно быть число");
+            System.exit(1);
+        }
+        return var;
+    }
+
+
     /// Функция вывода элементов массива
     /// array - переданный массив
     static void print_array(double[] array) {

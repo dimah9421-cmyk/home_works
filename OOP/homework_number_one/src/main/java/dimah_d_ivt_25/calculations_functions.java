@@ -27,7 +27,7 @@ public class calculations_functions {
 
         } catch (ArithmeticException e) {
             System.out.println("Ошибка: при текущих параметрах возникает деление на 0");
-            System.exit(1);
+            return  0;
         }
         return (1 + Math.cos(param_2 - 2.0)) / (Math.pow(param_1, 4) / 2.0) + Math.pow(Math.sin(param_3), 2);
     }

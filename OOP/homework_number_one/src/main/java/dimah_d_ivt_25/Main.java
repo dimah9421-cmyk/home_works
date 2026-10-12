@@ -6,7 +6,7 @@ import java.util.Scanner;   // Подключение модуля для счи
 
 public class  Main {     // Главный класс. Называние может меняться по желанию (имя класса должно совпадать с именем java файла)
 
-    public static void main(String[] args) {    // Главная функция. Название всегда main и всегда статичесая
+    static void main(String[] args) {    // Главная функция. Название всегда main и всегда статичесая
 
         calculations_functions.assert_tests(); // Проверки перед запуском программы
 
@@ -63,7 +63,10 @@ public class  Main {     // Главный класс. Называние мож
             // Вычисление a через написанную выше функцию + присвоение результата в переменную a
             a = calculations_functions.calculate_a(x, y);
             // Вычисление a через написанную выше функцию + присвоение результата в переменную b
-            b = calculations_functions.calculate_b(x, y, z);
+            if ((b = calculations_functions.calculate_b(x, y, z)) == 0){
+                return;
+            }
+
             // Функцию можно вызывать обращаясь к классу если модуль и основная программа находятся в одной папке
             // То есть не нужно import импортировать модуль в начале программы
 
