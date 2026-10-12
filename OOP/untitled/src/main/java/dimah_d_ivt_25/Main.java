@@ -37,7 +37,6 @@ public class Main {
             double S = Sum_sqrt(array);
 
             System.out.println();
-
             System.out.printf("Сумма корней равна S = %.2f", S); // Вывод суммы
         }
         else{

@@ -22,7 +22,7 @@ public class calculations_functions {
             double denominator = (Math.pow(param_1, 4) / 2.0) + Math.pow(Math.sin(param_3), 2);
             // Если знаменатель равен 0, искусственно вызываем ошибку
             if (denominator == 0) {
-                throw new ArithmeticException();    // Вызов мат ошибки в ручную
+                throw new ArithmeticException("Деление на ноль");    // Вызов мат ошибки в ручную
             }
 
         } catch (ArithmeticException e) {
