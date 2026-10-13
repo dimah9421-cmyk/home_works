@@ -35,7 +35,8 @@ public class Main {
             array_functions.print_array(array); // Вывод массива
 
             double S = Sum_sqrt(array);
-
+            works_file.print_el_array_in_file(array);
+            works_file.print_in_readFile(array);
             System.out.println();
             System.out.printf("Сумма корней равна S = %.2f", S); // Вывод суммы
         }
