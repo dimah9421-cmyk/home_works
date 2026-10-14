@@ -13,10 +13,10 @@
         scanf("%d",&a);
         
         __asm{
-            mov EAX, [a]
+            mov EAX, a
 
             // Первая операция (a**2)
-            imul EAX, EAX
+            imul EAX, EAX   //imul - операция для умнажения (первый операнд сохраняет результат и должен быть регистром)
 
             // Вторая операция (a**4)
             imul EAX, EAX
@@ -29,7 +29,7 @@
         printf("a**4 = %d\n", result_a4);
 
         __asm{
-            mov EAX, [a]
+            mov EAX, a
             // Первая операция a**2
             imul EAX, EAX
             
@@ -51,7 +51,7 @@
         printf("a**12 = %d\n", result_a12);
 
         __asm{
-            mov eax, [a]
+            mov eax, a
 
             // Первая операция a**2
             imul eax, eax
@@ -73,7 +73,7 @@
 
             // Пятая операция a**20
             imul eax, ebx
-            
+
             // Шестая операция a**28
             imul eax, ecx
 
