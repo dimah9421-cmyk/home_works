@@ -6,6 +6,7 @@ import java.util.Scanner;   // Подключение модуля для счи
 
 public class  Main {     // Главный класс. Называние может меняться по желанию (имя класса должно совпадать с именем java файла)
 
+
     static void main(String[] args) {    // Главная функция. Название всегда main и всегда статичесая
 
         calculations_functions.assert_tests(); // Проверки перед запуском программы
