@@ -1,0 +1,19 @@
+1. PS C:\Users\Дмитрий\Desktop\home_works> git worktree add ../project-main main — Попытка создать рабочий каталог для main (вероятно, первая, которая выдала ошибку занятости).
+2. PS C:\Users\Дмитрий\Desktop\home_works> git add . — Добавление измененных файлов в индекс.
+3. PS C:\Users\Дмитрий\Desktop\home_works> git commit -m "Сохранение документа перед созданием worktree" — Фиксация изменений файла .odt.
+4. PS C:\Users\Дмитрий\Desktop\home_works> git worktree add ../home_works_main main — Успешное создание нового рабочего дерева.
+5. PS C:\Users\Дмитрий\Desktop\home_works> git switch newbranch — Переключение текущей папки на ветку newbranch.
+6. PS C:\Users\Дмитрий\Desktop\home_works> git worktree add ../home_works_main main — Повторный вызов команды создания дерева.
+7. PS C:\Users\Дмитрий\Desktop\home_works> cd ../home_works_main — Переход в созданную папку home_works_main (где активна ветка main).
+8. PS C:\Users\Дмитрий\Desktop\home_works_main> Set-Content conflict_test.txt "Текст из ветки main" — Создание файла с текстом для ветки main.
+9. PS C:\Users\Дмитрий\Desktop\home_works_main> git add conflict_test.txt — Добавление файла в индекс внутри папки main.
+10. PS C:\Users\Дмитрий\Desktop\home_works_main> git commit -m "Добавил строку в main" — Коммит в ветке main.
+11. PS C:\Users\Дмитрий\Desktop\home_works_main> cd ../home_works — Возвращение обратно в основную папку home_works.
+12. PS C:\Users\Дмитрий\Desktop\home_works> Set-Content conflict_test.txt "Текст из ветки newbranch" — Перезапись файла текстом для ветки newbranch.
+13. PS C:\Users\Дмитрий\Desktop\home_works> git add conflict_test.txt — Индексация измененного файла.
+14. PS C:\Users\Дмитрий\Desktop\home_works> git commit -m "Добавил строку в newbranch" — Коммит в ветке newbranch.
+15. PS C:\Users\Дмитрий\Desktop\home_works> git merge main — Запуск слияния, вызвавший запланированный конфликт слияния.
+16. PS C:\Users\Дмитрий\Desktop\home_works> git add conflict_test.txt — Индексация файла после того, как маркеры конфликта были вручную исправлены.
+17. PS C:\Users\Дмитрий\Desktop\home_works> git merge --continue — Продолжение и успешное завершение слияния (тот самый шаг, где открывался Vim).
+18. PS C:\Users\Дмитрий\Desktop\home_works> git tag -a v1.0 -m "Успешный релиз после решения конфликта веток main и newbranch" — Создание аннотированного тега v1.0.
+19. PS C:\Users\Дмитрий\Desktop\home_works> git tag — Проверка списка тегов (команда вывела созданный v1.0).
