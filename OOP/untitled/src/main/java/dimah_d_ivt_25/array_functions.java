@@ -57,6 +57,7 @@ public class array_functions {
     }
 
     /// Функция для выбора пользователя по заполнения массива
+    /// Функция может вызвать ошибку при некорректном вводе данных
     /// @return - значение int, а точнее либо 1, либо 0
     static int input_selection(){
         Scanner sc = new Scanner(System.in);    // Переменная для считывания данных

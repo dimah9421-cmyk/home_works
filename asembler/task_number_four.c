@@ -6,8 +6,9 @@
     #include <stdint.h>
 
     int main(){
-        int32_t a;
-        int32_t result_a4, result_a12, result_a28;
+        int a;  // Переменная для ввода с клавиатура пользователем(изначальное значение)
+        // Переменные для сохранения и вывода (степени изначально переменной) 
+        int result_a4, result_a12, result_a28;
         
         printf("a = ");
         scanf("%d",&a);
@@ -68,11 +69,11 @@
                 // ecx == a**8
                 mov ecx, eax
             
-            // Четвертая операция a**16
-            imul eax, eax
+            // Четвертая операция a**12
+            imul eax, ebx
 
             // Пятая операция a**20
-            imul eax, ebx
+            imul eax, ecx
 
             // Шестая операция a**28
             imul eax, ecx

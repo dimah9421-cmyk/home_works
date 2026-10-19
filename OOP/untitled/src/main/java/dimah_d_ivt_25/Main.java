@@ -21,7 +21,7 @@ public class Main {
         }
         // Вывод результатов предыдущей работы с программой при переданном параметре
         else if (args.length == 1 && args[0].equals("last")) {
-            double[] lats_arrayy = works_file.read_file();  // Переменная для считывания и проверки
+            double[] lats_arrayy = works_file.read_file("open_array.txt");  // Переменная для считывания и проверки
 
             if (lats_arrayy.length != 0) {      // Если массив не пуст (то есть считываемый файл не пуст)
                 System.out.println("Предыдущий расчет:");
@@ -34,7 +34,7 @@ public class Main {
         // Если не передано ни одного аргумента при запуске программы
         else if (args.length == 0) {
 
-            double[] lats_array = works_file.read_file();
+            double[] lats_array = works_file.read_file("open_array.txt");
 
             if (lats_array.length != 0){
                 System.out.println("Предыдущий расчет:");
@@ -58,10 +58,19 @@ public class Main {
             array_functions.print_array(array); // Вывод массива
 
             double S = Sum_sqrt(array);
-            works_file.print_el_array_in_file(array);   // Функция сохраняется для сохранения обычного массива
-            works_file.print_in_readFile(array);    // Функция для сохранения в виде мат выражения + результат
+
+            works_file.print_el_array_in_file("open_array.txt",array);   // Функция сохраняется для сохранения обычного массива
+
             System.out.println();
-            System.out.printf("Сумма корней равна S = %.2f", S); // Вывод суммы
+            System.out.printf("Сумма корней равна S = %.2f\n", S); // Вывод суммы
+
+            // Очищаем буфер после считывания чисел (иначе консоль считывает \n)
+            sc.nextLine();
+
+            System.out.print("Введите имя файла для сохранения в него данных вычислений (file.txt):");
+            String filename = sc.nextLine();
+            works_file.print_in_readFile(filename,array);    // Функция для сохранения в виде мат выражения + результат
+            System.out.println("Данные успешно сохранены в файл " + filename);
         }
 
         else{
@@ -75,10 +84,16 @@ public class Main {
 
                 double S = Calc.Sum_sqrt(array);    // Вычисления по заданию
 
-                works_file.print_el_array_in_file(array);   // Сохранения данных их данного запуска
-                works_file.print_in_readFile(array);    // Сохранение данных в виде выражения + сумма
+                works_file.print_el_array_in_file("open_array.txt",array);   // Сохранения данных их данного запуска
 
-                System.out.printf("сумма корней равна S = %.2f", S);   // Вывод суммы
+                System.out.printf("сумма корней равна S = %.2f\n", S);   // Вывод суммы
+
+                sc.nextLine();
+
+                System.out.print("Введите имя файла для сохранения в него данных вычислений (file.txt):");
+                String filename = sc.nextLine();
+                works_file.print_in_readFile(filename,array);    // Функция для сохранения в виде мат выражения + результат
+                System.out.println("Данные успешно сохранены в файл " + filename);
             } catch (NumberFormatException e){
                 // Если в переданных аргументах было не числа, а символы
                 System.out.println("Ошибка: Аргументы должны быть числами!!!");
