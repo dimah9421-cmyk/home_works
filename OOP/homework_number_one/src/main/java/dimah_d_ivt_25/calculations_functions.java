@@ -18,9 +18,12 @@ public class calculations_functions {
     /// param_3 - третий переданный в функцию параметр для вычислений
     /// Функция возвращает результат вычислений (по формуле из условия задачи)
     public static double calculate_b(double param_1, double param_2, double param_3) {
+
+        double denominator = 1;
+
         try {
             // Вычисляем знаменатель
-            double denominator = (Math.pow(param_1, 4) / 2.0) + Math.pow(Math.sin(param_3), 2);
+            denominator = (Math.pow(param_1, 4) / 2.0) + Math.pow(Math.sin(param_3), 2);
             // Если знаменатель равен 0, искусственно вызываем ошибку
             if (denominator == 0) {
                 throw new ArithmeticException("Деление на ноль");    // Вызов мат ошибки в ручную
@@ -30,7 +33,7 @@ public class calculations_functions {
             System.out.println("Ошибка: при текущих параметрах возникает деление на 0");
             return  0;
         }
-        return (1 + Math.cos(param_2 - 2.0)) / (Math.pow(param_1, 4) / 2.0) + Math.pow(Math.sin(param_3), 2);
+        return (1 + Math.cos(param_2 - 2.0)) / denominator;
     }
 
 
