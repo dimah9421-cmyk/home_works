@@ -21,6 +21,7 @@ void task_fill(std :: vector <std :: vector <double>> & m){
 }
 
 void rand_fill(std :: vector <std :: vector <double>> & m){
+    srand(time(0));
     for (unsigned int i = 0; i < m.size(); i++) 
     for (unsigned int j = 0; j <= m.size(); j++)     
     m[i][j] = (double)((rand() % 400) - 200) / 7.0;
