@@ -44,6 +44,7 @@ public class Main {
         for (int i = 0; i < 36; i++) {
             // get() - метод для поссылочнму обращению к элементу динамического списка ArrayList
             IO.println(deck.get(i).toString());
+            filework.print_el_array_in_file("array.txt", deck.get(i));
         }
     }
 }
