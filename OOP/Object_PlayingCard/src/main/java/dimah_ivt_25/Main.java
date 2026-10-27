@@ -13,12 +13,16 @@ public class Main {
         card2 = new Playing_card(2, 14);
 
         try {
+            // Создаем объект (карта король черви)
             Playing_card card3 = new Playing_card(3,13);
+            // Переназначаем поле мощности объекта (с короля на даму)
             card3.setCart_power(12);
+            // Вывод сеттера масти карты (черви/3)
             IO.println(card3.getSuit_cart());
+            // Вывод сеттера мощности карты (дама/12)
             IO.println(card3.getCart_power());
-            IO.println(card3);
-        } catch (IllegalArgumentException e){
+            IO.println(card3);  // Вывод строки
+        } catch (IllegalArgumentException e){   // Проверка исключения неверных данных
             IO.println(e.toString());
         }
 
