@@ -11,9 +11,10 @@ public class works_file {
 
     /// Функция для очистки файла (удаления данных из файла)
     /// Функция может вызвать исключение если нет доступа к файлу open_array.txt
-    static void clear_file_open_array(){
+    /// Возможно исключение throws IOException
+    static void clear_file_open_array(String filename1){
         // Проверка исключения (пытаемся открыть файл для его очистки
-        try (java.io.FileWriter writer = new java.io.FileWriter("open_array.txt",false)){
+        try (java.io.FileWriter writer = new java.io.FileWriter(filename1,false)){
         } catch (IOException e){    // Обработка исключений
         System.out.println("Ошибка удаления файла");
         }
@@ -22,7 +23,8 @@ public class works_file {
     /// Функция для записи данных с арифм знаками из массива и суммы корней элементов массива в конец файла
     /// Функция может вызвать исключение если нет доступа к файлу arrays.txt
     /// @param array - переменная массив типа double - сам массив для записи
-    static void print_in_readFile(String filename1, double[] array) {
+    /// Возможно исключение throws IOException
+    static void print_in_readFile(String filename1, double[] array){ // Искул.чение при невозможности открыть фвйл
         // Если массив пуст или вообще не выделен - завершаем функцию
         if (array == null || (array.length == 0)) return;
 
@@ -44,6 +46,7 @@ public class works_file {
     /// Функция для сохранения данных для будущего использования
     /// Функция может вызвать исключение если нет доступа к файлу open_array.txt
     /// @param array - массив типа double для взятия данных
+    /// Возможно исключение throws IOException
     static void print_el_array_in_file(String filename1, double[] array){
         // Если массив пуст или не выделен, то завершаем функцию
         if (array == null || array.length == 0) return;
@@ -62,7 +65,8 @@ public class works_file {
     /// Функция для считывания массива из txt файла
     /// Функция может вызвать исключение если не доступа к файлу open_array.txt
     /// @return либо считанный массив, либо пустой массив
-    static double[] read_file(String filename1) {
+    /// Возможно исключение throws IOException
+    static double[] read_file(String filename1){
 
         int length = 0; // Переменная - длина строки в файле
         try (Scanner sc = new Scanner(new File(filename1))) {

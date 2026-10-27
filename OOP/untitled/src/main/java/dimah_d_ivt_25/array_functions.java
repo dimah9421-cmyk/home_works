@@ -23,7 +23,7 @@ public class array_functions {
     /// Функция ждя заполнения массива в ручную (пользователем с клавиатуры)
     /// @param length  - длина массива
     /// @return - заполненный массив
-    static double[] user_fill(int length){
+    static double[] user_fill(int length) throws RuntimeException{
 
         Scanner sc = new Scanner(System.in);    // Переменная для считывания данных
 
@@ -59,7 +59,7 @@ public class array_functions {
     /// Функция для выбора пользователя по заполнения массива
     /// Функция может вызвать ошибку при некорректном вводе данных
     /// @return - значение int, а точнее либо 1, либо 0
-    static int input_selection(){
+    static int input_selection() throws RuntimeException{
         Scanner sc = new Scanner(System.in);    // Переменная для считывания данных
 
         int var = -1;   // Переменная для выбора пользователя
@@ -72,7 +72,6 @@ public class array_functions {
             }
         }catch (java.util.InputMismatchException e){
             System.out.println("Ошибка: Должно быть число");
-            System.exit(1);
         }
         return var;
     }

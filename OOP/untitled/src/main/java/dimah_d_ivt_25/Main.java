@@ -23,7 +23,7 @@ public class Main {
         else if (args.length == 1 && args[0].equals("last")) {
             double[] lats_arrayy = works_file.read_file("open_array.txt");  // Переменная для считывания и проверки
 
-            if (lats_arrayy.length != 0) {      // Если массив не пуст (то есть считываемый файл не пуст)
+            if (lats_arrayy.length != 0) {      // Если массив не пуст (то-есть считываемый файл не пуст)
                 System.out.println("Предыдущий расчет:");
                 for (double i : lats_arrayy)    // Вывод массива при прошлом запуске
                     System.out.printf("%.3f ", i);
@@ -41,7 +41,7 @@ public class Main {
                 for (double i: lats_array)
                     System.out.printf("%.3f ",i);
                 System.out.printf("\nСумма равная %.3f\n",Calc.Sum_sqrt(lats_array));
-                works_file.clear_file_open_array(); // Функция для очистки файла (в файле только последние программы)
+                works_file.clear_file_open_array("open_array.txt"); // Функция для очистки файла (в файле только последние программы)
             }
             int n = 0;
             System.out.print("Введите n = ");
@@ -75,7 +75,7 @@ public class Main {
 
         else{
             try {
-                works_file.clear_file_open_array(); // Очистка файла с данными для работы
+                works_file.clear_file_open_array("open_array.txt"); // Очистка файла с данными для работы
 
                 double[] array = new double[args.length];   // Создание переменной массива размером переданной длинны
 
