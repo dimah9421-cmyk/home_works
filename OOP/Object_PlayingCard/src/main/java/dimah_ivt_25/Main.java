@@ -1,5 +1,7 @@
 package dimah_ivt_25;
 
+import java.util.ArrayList;
+
 public class Main {
     static void main(String[] args) {
 
@@ -25,22 +27,23 @@ public class Main {
         } catch (IllegalArgumentException e){   // Проверка исключения неверных данных
             IO.println(e.toString());
         }
+        // Создаем динамический массив типа Playing_card
+        ArrayList<Playing_card> deck = new ArrayList<Playing_card>();
 
-        Playing_card[] deck = new Playing_card[36];
-
-        IO.println("Вся колода:");
-        int ind = 0;    // Переменная для указания индекса массива
         for (int suit = 1; suit <= 4; suit++) {          // Цикл по 4 мастям
             for (int power = 6; power <= 14; power++) {  // Цикл по мощности от 6 до Туза (14)
-                deck[ind] = new Playing_card();          // Создаем объект
-                deck[ind].setSuit_cart(suit);            // Заполняем поле масти нашей карты
-                deck[ind].setCart_power(power);          // Заполняем поле мощности нашей карты
-                ind++;  // Увеличиваем индекс массива на 1
+                Playing_card card = new Playing_card();  // Создаем объект
+                card.setSuit_cart(suit);                 // Заполняем поле масти нашей карты
+                card.setCart_power(power);               // Заполняем поле мощности нашей карты
+                deck.add(card);  // Добавляем в конец списка значения переменной card
             }
         }
+
+        IO.println("Вся колода:");
         // Вывод массива
         for (int i = 0; i < 36; i++) {
-            IO.println(deck[i].toString());
+            // get() - метод для поссылочнму обращению к элементу динамического списка ArrayList
+            IO.println(deck.get(i).toString());
         }
     }
 }
